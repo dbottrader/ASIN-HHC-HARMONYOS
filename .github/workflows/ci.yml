@@ -82,7 +82,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-          cache: npm
 
       - name: Install, build, and test Node project when present
         if: ${{ hashFiles('package.json') != '' }}
@@ -95,7 +94,7 @@ jobs:
             npm install
           fi
           npm run build --if-present
-          npm test --if-present
+          npm run test --if-present
 
       - name: Record absent app scaffold when package.json is missing
         if: ${{ hashFiles('package.json') == '' }}
