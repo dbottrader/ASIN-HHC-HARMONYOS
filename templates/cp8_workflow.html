@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CP8 Unified — HarmonyOS Workflow</title>
+    <meta charset="utf-8">
+    <style>
+        body { background: #0a0a0a; color: #0f0; font-family: 'Courier New', monospace; padding: 20px; }
+        h1 { color: #0ff; text-align: center; }
+        .room-nav { display: flex; gap: 10px; justify-content: center; margin: 20px 0; flex-wrap: wrap; }
+        .room-btn { background: #222; color: #0f0; border: 1px solid #0f0; padding: 10px 15px; cursor: pointer; }
+        .room-btn.active { background: #0f0; color: #000; }
+        .section { background: #111; border: 1px solid #0f0; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        input, textarea, select { background: #222; color: #0f0; border: 1px solid #0f0; padding: 8px; width: 100%; box-sizing: border-box; }
+        button { background: #0a0; color: white; border: none; padding: 10px 20px; cursor: pointer; margin: 5px 0; }
+        .result { background: #001100; padding: 15px; margin: 10px 0; border: 1px solid #0f0; white-space: pre-wrap; }
+        .artifact-list { max-height: 300px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <h1>🌀 CP8 Unified — HarmonyOS Workflow 🌀</h1>
+    <p style="text-align:center;">ASIN Framework: Anchor → Shape → Intention → Number</p>
+
+    <div class="room-nav">
+        <button class="room-btn active" onclick="switchRoom(1)">1 🔒 VAULT</button>
+        <button class="room-btn" onclick="switchRoom(2)">2 🌊 RESONANCE</button>
+        <button class="room-btn" onclick="switchRoom(3)">3 ⚒️ WORKSHOP</button>
+        <button class="room-btn" onclick="switchRoom(4)">4 🌉 BRIDGE</button>
+        <button class="room-btn" onclick="switchRoom(5)">✨ EXPANSION</button>
+        <button class="room-btn" onclick="switchRoom(6)">📦 ARCHIVE</button>
+    </div>
+
+    <!-- VAULT -->
+    <div id="room-1" class="section">
+        <h2>ACTIVE: Vault — Anchor (Provenance Sealing)</h2>
+        
+        <div class="section">
+            <h3>✦ SEAL ARTIFACT</h3>
+            <form id="sealForm">
+                <label>ID: <input type="text" id="artifactId" value="cp8-manifest-001" required></label><br><br>
+                <label>Room: <select id="roomSelect">
+                    <option value="vault">Vault</option>
+                    <option value="resonance">Resonance</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="bridge">Bridge</option>
+                    <option value="expansion">Expansion</option>
+                    <option value="archive">Archive</option>
+                </select></label><br><br>
+                <label>Content:<br><textarea id="artifactContent" rows="6" placeholder="Paste artifact content here..." required></textarea></label><br><br>
+                <button type="button" onclick="sealArtifact()">Seal with SHA-256</button>
+            </form>
+            
+            <div id="sealResult" class="result" style="display:none;"></div>
+        </div>
+
+        <div class="section">
+            <h3>📋 SEALED ARTIFACTS</h3>
+            <div id="artifactList" class="artifact-list"></div>
+        </div>
+    </div>
+
+    <!-- Other rooms (placeholders with future expansion notes) -->
+    <div id="room-2" class="section" style="display:none;">
+        <h2>Resonance Room</h2>
+        <p>Coming soon: Live harmonic coherence calculations, Kuramoto phase evolution, Delta-717 integration.</p>
+        <p>Use the main Resonance Calculator on the dashboard for now.</p>
+    </div>
+
+    <div id="room-3" class="section" style="display:none;">
+        <h2>Workshop</h2>
+        <p>Coming soon: Glyph creation, editing, and testing tools.</p>
+    </div>
+
+    <div id="room-4" class="section" style="display:none;">
+        <h2>Bridge</h2>
+        <p>Coming soon: Cross-room / cross-repo integration and handoff tools.</p>
+    </div>
+
+    <div id="room-5" class="section" style="display:none;">
+        <h2>Expansion</h2>
+        <p>Coming soon: Scaling, deployment, and ecosystem growth features.</p>
+    </div>
+
+    <div id="room-6" class="section" style="display:none;">
+        <h2>Archive</h2>
+        <p>Coming soon: Full bundle + seal of artifact collections, provenance bundles.</p>
+        <p>Current sealed items appear in the Vault list above.</p>
+    </div>
+
+    <script>
+        let sealedArtifacts = [];
+
+        function switchRoom(roomNum) {
+            document.querySelectorAll('.section').forEach(el => el.style.display = 'none');
+            document.getElementById('room-' + roomNum).style.display = 'block';
+            
+            // Highlight active button
+            document.querySelectorAll('.room-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        async function sealArtifact() {
+            const id = document.getElementById('artifactId').value;
+            const room = document.getElementById('roomSelect').value;
+            const content = document.getElementById('artifactContent').value;
+
+            if (!content) {
+                alert('Please enter content to seal.');
+                return;
+            }
+
+            // Compute SHA-256
+            const encoder = new TextEncoder();
+            const data = encoder.encode(content);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+            const timestamp = new Date().toISOString();
+
+            const result = {
+                id: id,
+                hash: hashHex.substring(0, 8) + '...' + hashHex.substring(hashHex.length - 4),
+                fullHash: hashHex,
+                time: timestamp,
+                room: room,
+                status: 'SEALED'
+            };
+
+            sealedArtifacts.unshift(result);
+            updateArtifactList();
+
+            // Show result
+            const resultDiv = document.getElementById('sealResult');
+            resultDiv.innerHTML = `
+                <strong>Result:</strong><br>
+                Hash: ${result.fullHash}<br>
+                Time: ${timestamp}<br>
+                Room: ${room}<br>
+                Status: ✓ SEALED
+            `;
+            resultDiv.style.display = 'block';
+
+            // Clear form
+            document.getElementById('artifactContent').value = '';
+        }
+
+        function updateArtifactList() {
+            const listDiv = document.getElementById('artifactList');
+            listDiv.innerHTML = sealedArtifacts.map(art => `
+                <div style="margin: 8px 0; padding: 8px; background: #001100; border: 1px solid #0f0;">
+                    ✓ <strong>${art.id}</strong><br>
+                    ${art.hash} — ${art.time}<br>
+                    Room: ${art.room}
+                </div>
+            `).join('');
+        }
+
+        // Initialize with some demo data
+        window.onload = function() {
+            // Demo sealed items
+            sealedArtifacts = [
+                {id: 'cp8-unified-2026-05-14.zip', hash: '7a3f...e9d2', fullHash: '7a3f...e9d2', time: '2026-05-15T21:30:00Z', room: 'vault', status: 'SEALED'},
+                {id: 'Harmonic_System_Refinement.txt', hash: 'b8e4...f2c9', fullHash: 'b8e4...f2c9', time: '2026-05-15T21:30:01Z', room: 'vault', status: 'SEALED'},
+                {id: 'Sacred_Geometry_Transformer.txt', hash: 'c5d2...a1b7', fullHash: 'c5d2...a1b7', time: '2026-05-15T21:30:02Z', room: 'vault', status: 'SEALED'}
+            ];
+            updateArtifactList();
+            // Start on Vault
+            document.getElementById('room-1').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
