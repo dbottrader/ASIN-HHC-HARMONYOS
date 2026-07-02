@@ -10,7 +10,7 @@ from typing import List, Optional
 app = FastAPI(
     title="ASIN-HHC-HARMONYOS",
     description="Sovereign Harmony OS Hub - Cathedral-OS Gateway",
-    version="0.2.0"
+    version="0.3.0"
 )
 
 templates = Jinja2Templates(directory="templates")
@@ -24,9 +24,13 @@ class ResonanceRequest(BaseModel):
 async def dashboard(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request, "title": "ASIN-HHC-HARMONYOS Hub"})
 
+@app.get("/cp8-workflow", response_class=HTMLResponse)
+async def cp8_workflow(request: Request):
+    return templates.TemplateResponse("cp8_workflow.html", {"request": request})
+
 @app.get("/health")
 async def health():
-    return {"status": "healthy", "service": "ASIN-HHC-HARMONYOS", "version": "0.2.0"}
+    return {"status": "healthy", "service": "ASIN-HHC-HARMONYOS", "version": "0.3.0"}
 
 @app.get("/status")
 async def status():
@@ -34,9 +38,9 @@ async def status():
 
 @app.post("/resonance/coherence")
 async def compute_coherence(req: ResonanceRequest):
-    # Placeholder for full harmonic math
-    score = 0.78  # TODO: integrate real math
-    return {"coherence": score, "glyph1": req.glyph1, "glyph2": req.glyph2, "message": "Resonance calculated (placeholder)"}
+    # Placeholder - integrate real math next
+    score = 0.78
+    return {"coherence": score, "glyph1": req.glyph1, "glyph2": req.glyph2, "message": "Resonance calculated (placeholder - real math coming)"}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
