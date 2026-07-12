@@ -1,0 +1,48 @@
+{
+  "schema": "asin-hhc-vault-codex-index/v1",
+  "release": "2026-07-11",
+  "canonical_room_flow": [
+    "Vault",
+    "Resonance",
+    "Workshop",
+    "Bridge",
+    "Expansion",
+    "Archive"
+  ],
+  "evidence_ladder": [
+    "LOOM",
+    "LOCAL",
+    "WITNESS",
+    "REPRO",
+    "PRODUCTION"
+  ],
+  "canonical_repository": "dbottrader/ASIN-HHC-HARMONYOS",
+  "branch": "project-import-20260703",
+  "recovered_devices": [
+    {
+      "device_id": "ASIN-DEVICE-STAR-COMPASS-FREQUENCY-GATE-v1",
+      "path": "recovery/2026-07-11-vault-codex/Workshop/Devices/Star_Compass_Frequency_Gate/index.html",
+      "status": "LOCAL_RECOVERY_BASELINE",
+      "pipeline": [
+        "Decode",
+        "Star Compass",
+        "Frequency Gate",
+        "Spiral Archive"
+      ],
+      "profiles": [
+        "CHILBOLTON-ARECIBO-STYLE-2001-RECON",
+        "MILK-HILL-2001-RECON"
+      ]
+    }
+  ],
+  "public_release_excludes": [
+    "credentials",
+    "private_keys",
+    "medical_records",
+    "family_law_records",
+    "private_contact_lists",
+    "raw_private_chat_exports",
+    "unlicensed_third_party_files"
+  ],
+  "claim_boundary": "The recovered device deterministically encodes selected geometry. It does not prove that crop formations contain literal hidden machine code or physically privileged frequencies."
+}
