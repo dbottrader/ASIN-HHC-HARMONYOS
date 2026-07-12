@@ -1,0 +1,24 @@
+{
+  "schema": "asin-formation-profile/v1",
+  "formation_id": "CHILBOLTON-ARECIBO-STYLE-2001-RECON",
+  "title": "Chilbolton Arecibo-Style Matrix Reconstruction",
+  "location": "Chilbolton, Hampshire, England",
+  "year": 2001,
+  "source_status": "reconstructed",
+  "geometry": {
+    "rows": 73,
+    "columns": 23,
+    "node_count": 1679,
+    "ring_count": 0,
+    "radial_arms": 0,
+    "symmetry_order": 2,
+    "rotation_degrees": 0,
+    "center_offset_x": 0,
+    "center_offset_y": 0,
+    "spiral_direction": "none",
+    "size_classes": [1.0],
+    "ratios": [3.173913043],
+    "notes": "Recovery scaffold using the 73 × 23 matrix frame. Add a verified source transcription before claiming a source-grounded decode."
+  },
+  "source_bits": ""
+}
