@@ -1,0 +1,12 @@
+{
+  "schema": "asin-hhc-security-scan/v1",
+  "patterns_checked": [
+    "email",
+    "openai_key",
+    "hf_token",
+    "github_token",
+    "ssn"
+  ],
+  "findings": [],
+  "status": "PASS"
+}

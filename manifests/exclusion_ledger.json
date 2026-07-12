@@ -1,0 +1,15 @@
+{
+  "schema": "asin-hhc-ai-exclusion-ledger/v1",
+  "openai_export_total_conversations": 1014,
+  "openai_scope_start": "2025-10-01",
+  "openai_published_conversations": 145,
+  "openai_redacted_messages": 1271,
+  "exclusion_counts": {
+    "before_2025_10_01": 790,
+    "sensitive_or_nonproject_title": 37,
+    "insufficient_messages_after_filter": 10,
+    "insufficient_project_signal": 32
+  },
+  "takeout_rule": "Raw Takeout, Gmail MBOX, personal video, credentials, medical, family-law, and unrelated private content are not published.",
+  "vendor_rule": "node_modules, generated distributions, package-lock files, and generic third-party dependency documentation are excluded."
+}

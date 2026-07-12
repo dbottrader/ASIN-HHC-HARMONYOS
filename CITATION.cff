@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this corpus, cite it using the metadata below."
+title: "ASIN-HHC Public AI/ML Architecture Corpus"
+type: dataset
+authors:
+  - family-names: Christie
+    given-names: Dennis M.
+version: 0.1
+date-released: 2026-07-12
+repository-code: "https://github.com/dbottrader/ASIN-HHC-HARMONYOS"
+license: CC-BY-4.0
+keywords:
+  - ASIN-HHC
+  - CP8
+  - HarmonyOS
+  - AI agents
+  - provenance
+  - human-AI collaboration

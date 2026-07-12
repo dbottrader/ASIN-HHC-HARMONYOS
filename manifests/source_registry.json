@@ -1,0 +1,56 @@
+{
+  "schema": "asin-hhc-ai-source-registry/v1",
+  "generated_at": "2026-07-12T15:34:28.739606+00:00",
+  "scope_start": "2025-10-01",
+  "sources": [
+    {
+      "source_id": "drive:1hjW6WIRAuyNufMDQY_JNW3W0Bzf3FsbY",
+      "title": "FULL_CHATGPT_EXTRACTION_2026-05-21.txt",
+      "provider": "OpenAI ChatGPT export",
+      "size_bytes": 39560029,
+      "sha256": "90c4444a5cc815bfe3bad17454e76968e0b14b8ef75c4b21367176a65fd4b144",
+      "publication_status": "project-only filtered derivative published"
+    },
+    {
+      "source_id": "drive:1SJ4POnuR8ZcebtZshIw0vUoEwVP7_6RI",
+      "title": "MASTER_AI_CORPUS.txt",
+      "provider": "Cross-agent compiled corpus",
+      "size_bytes": 42894241,
+      "sha256": "d7f8f1c5dd52381fc2c53f42b0360c441a61b092f2303fb22231a4dc9f24be86",
+      "publication_status": "vendor-stripped filtered derivative published"
+    },
+    {
+      "source_id": "drive:1-e6ZK3Jj5oroX0fVtTnjBSNFpWYmO6F2",
+      "title": "AI_CONVERSATION_INDEX.md",
+      "provider": "OpenAI ChatGPT export index",
+      "size_bytes": 73781,
+      "sha256": "14a4380ea16fc2ab6affcde752f94e1331e1c0b6489d27361e626416db4626dd",
+      "publication_status": "raw index withheld; project-only index published"
+    },
+    {
+      "source_id": "drive:1fu_rbv4tVneJAJqid3yeW5YH2V67UQFSMV-RhSHjab78NsrKbnyODg5A6FCamE2bqtxQwR5f",
+      "title": "Google Takeout folder",
+      "provider": "Google Takeout",
+      "publication_status": "containers not published wholesale; AI artifacts extracted selectively",
+      "notes": "Folder includes large account archives, email MBOX files, and personal media outside the AI architecture/code scope."
+    },
+    {
+      "source_id": "drive:1g22g3TE2al-XtBNJB5_MBD90KHNrZmgRK3k_HKQj8eM",
+      "title": "xAI (Grok) Master Services Agreement Framework",
+      "provider": "Grok / xAI-derived project record",
+      "publication_status": "registered for future source-specific import"
+    },
+    {
+      "source_id": "drive:15mE35vn9siwdVUcECRLCpCsT8F8t6g6Z",
+      "title": "Kimi source link record",
+      "provider": "Kimi",
+      "publication_status": "registered; Kimi metadata already included"
+    },
+    {
+      "source_id": "drive:1ozVjuewRzJ412zr-TED_Qt-W38mp9cyq",
+      "title": "AI_Data_Ingest_Report_2026-05-21.md",
+      "provider": "Cross-agent ingest",
+      "publication_status": "registered for future direct-file import"
+    }
+  ]
+}
