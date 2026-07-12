@@ -14,6 +14,26 @@ A codex artifact can be promoted only when it gains runnable, reviewed, reproduc
 
 ---
 
+## 2026 Vault/Codex Recovery
+
+The recovered public Vault/Codex spine is now indexed here:
+
+- [Vault and Codex Master Index](../../recovery/2026-07-11-vault-codex/CODEX_MASTER_INDEX.md)
+- [Public Release Boundary](../../recovery/2026-07-11-vault-codex/PUBLIC_RELEASE_BOUNDARY.md)
+- [Recovery Ledger](../../recovery/2026-07-11-vault-codex/Archive/RECOVERY_LEDGER_20260711.md)
+- [Star Compass & Frequency Gate](../../recovery/2026-07-11-vault-codex/Workshop/Devices/Star_Compass_Frequency_Gate/index.html)
+- [Device Recovery Specification](../../recovery/2026-07-11-vault-codex/Workshop/Devices/Star_Compass_Frequency_Gate/ASIN_DEVICES_RECOVERY_SPEC.md)
+- [Chilbolton reconstruction profile](../../recovery/2026-07-11-vault-codex/Workshop/Devices/Star_Compass_Frequency_Gate/profiles/chilbolton_arecibo_style_reconstruction.json)
+- [Milk Hill reconstruction profile](../../recovery/2026-07-11-vault-codex/Workshop/Devices/Star_Compass_Frequency_Gate/profiles/milk_hill_2001_reconstruction.json)
+
+Canonical room flow:
+
+```text
+Vault → Resonance → Workshop → Bridge → Expansion → Archive
+```
+
+---
+
 ## Known Codex Artifacts
 
 ### ASIN Recovery / 13th Cycle
@@ -24,7 +44,7 @@ Status: pending migration.
 ### Crop Circle / Glyph Decode Pages
 
 Purpose: symbolic geometry interpretation using ASIN format.  
-Status: pending migration.  
+Status: active recovery.  
 Boundary: interpretive unless measurement data and reproducible analysis are attached.
 
 ### CCD-9 Formation 791
